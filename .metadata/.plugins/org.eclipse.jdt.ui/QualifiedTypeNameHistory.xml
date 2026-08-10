@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="com.adda.app.util.DataStore"/>
+    <fullyQualifiedTypeName name="com.adda.app.bean.Course"/>
+    <fullyQualifiedTypeName name="com.adda.app.bean.Student"/>
+    <fullyQualifiedTypeName name="com.adda.app.dao.StudentDao"/>
+    <fullyQualifiedTypeName name="com.adda.app.dao.impl.StudentDaoImpl"/>
+    <fullyQualifiedTypeName name="com.adda.app.dao.CourseDao"/>
+    <fullyQualifiedTypeName name="com.adda.app.dao.impl.CourseDaoImpl"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="com.adda.app.util.InputUtil"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,12 @@
+package com.adda.app.dao;
+
+import java.util.List;
+
+import com.adda.app.bean.Course;
+
+public interface CourseDao {
+	void addCourse(Course course);
+	List<Course> getAllCourses();
+	Course getCourseById();
+	
+}

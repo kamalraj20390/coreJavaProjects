@@ -1,0 +1,33 @@
+package com.adda.app.service.impl;
+
+import java.util.List;
+
+import com.adda.app.bean.Course;
+import com.adda.app.dao.CourseDao;
+import com.adda.app.dao.impl.CourseDaoImpl;
+import com.adda.app.service.CourseService;
+
+public class CourseServiceImpl implements CourseService {
+	private CourseDao courseDao=new CourseDaoImpl();
+	@Override
+	public boolean addCourse(Course course) {
+		if(course==null)
+			return false;
+			if(courseDao.getCourseById(course.getId())!=null)
+				return false;
+			courseDao.addCourse(course);
+			return true;
+		
+	}
+
+	@Override
+	public List<Course> getAllCourses() {
+		return courseDao.getAllCourses();
+	}
+
+	@Override
+	public Course getCourseById(int id) {
+		return courseDao.getCourseById(id);
+	}
+
+}

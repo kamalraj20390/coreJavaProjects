@@ -1,0 +1,7 @@
+package com.adda.app.dao.impl;
+
+import com.adda.app.dao.CourseDao;
+
+public class CourseDaoImpl implements CourseDao {
+
+}

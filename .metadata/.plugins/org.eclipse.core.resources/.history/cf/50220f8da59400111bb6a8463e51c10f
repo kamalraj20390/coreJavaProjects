@@ -1,0 +1,99 @@
+package com.adda.app.main;
+
+import java.util.List;
+
+import com.adda.app.bean.Student;
+import com.adda.app.dao.StudentDao;
+import com.adda.app.dao.impl.StudentDaoImpl;
+import com.adda.app.service.CourseService;
+import com.adda.app.service.StudentService;
+import com.adda.app.service.impl.CourseServiceImpl;
+import com.adda.app.service.impl.StudentServiceImpl;
+import com.adda.app.util.InputUtil;
+
+public class Main {
+	private static StudentService studentService=new StudentServiceImpl();
+	private static CourseService courseService=new CourseServiceImpl();
+	public static void main(String[] args) {
+		while (true) {
+			System.out.println();
+			System.out.println("=====================================");
+			System.out.println("STUDENT & COURSE MANAGEMENT SYSTEM");
+			System.out.println("=====================================");
+			System.out.println("1. ADD");
+			System.out.println("2. VIEW");
+			System.out.println("3. Enroll");
+			System.out.println("4. View Enroll");
+			System.out.println("5. Exit");
+			System.out.println("---------------------------------------");
+			int choice=InputUtil.getInt("Enter Your Choice : ");
+			
+			switch (choice) {
+			case 1:
+					addMenu();
+				break;
+			case 2:
+					viewMenu();
+				break;
+			case 3:
+					enrollStudent();
+				break;
+			case 4:
+					viewEnrollMenu();
+				break;
+			case 5:
+					System.out.println("Thank You");
+					System.exit(0);
+				break;
+
+			default:
+				System.out.println("Invalid Choice! ");
+			}
+			
+		}
+	}
+	private static void viewEnrollMenu() {
+		// TODO Auto-generated method stub
+		
+	}
+	private static void enrollStudent() {
+		// TODO Auto-generated method stub
+		
+	}
+	private static void viewMenu() {
+		// TODO Auto-generated method stub
+		
+	}
+	private static void addMenu() {
+		System.out.println();
+		System.out.println("--------------ADD---------------");
+		System.out.println("1. Add Student");
+		System.out.println("2. Add Course");
+		System.out.println("3. Exit");
+		int choice = InputUtil.getInt("Enter Your Choice: ");
+		switch (choice) {
+		case 1:
+				addStudent();
+			break;
+		case 2:
+				addCourse();
+			break;
+		case 3:
+				System.out.println("Thank You");
+				System.exit(0);
+		default:
+			System.out.println("Invalid Choice! ");
+		}
+		
+		
+	}
+	private static void addCourse() {
+		// TODO Auto-generated method stub
+		
+	}
+	private static void addStudent() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

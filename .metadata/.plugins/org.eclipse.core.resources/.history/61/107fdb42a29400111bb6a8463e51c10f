@@ -1,0 +1,28 @@
+package com.adda.app.main;
+
+import java.util.List;
+
+import com.adda.app.bean.Student;
+import com.adda.app.dao.StudentDao;
+import com.adda.app.dao.impl.StudentDaoImpl;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Student student=new Student(101, "kamal", "k@gmail.com", "9111009331");
+		StudentDao dao=new StudentDaoImpl();
+		dao.addStudent(student);
+		Student student1=new Student(102, "kamal2", "k2@gmail.com", "9111009331");
+		dao.addStudent(student1);
+		dao.getAllStudents().forEach(System.out::println);
+		Student student2=new Student(103, "kamal3", "k2@gmail.com", "9111009331");
+		dao.addStudent(student2);
+		dao.getAllStudents().forEach(System.out::println);
+		List<Student> students=dao.getAllStudents();
+		for (Student student3 : students) {
+			System.out.println(student3);
+		}
+		System.out.println(dao.getStudentById(102));
+	}
+
+}

@@ -1,0 +1,28 @@
+package com.adda.app.test;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import com.adda.app.bean.Student;
+
+public class Test {
+
+	public static void main(String[] args) {
+		//List<Student> students=new ArrayList<Student>();
+		List<Student> students=Arrays.asList(
+				new Student(101, "kamal101", "k@gmail1.com"),
+				new Student(102, "kamal102", "k@gmail2.com"),
+				new Student(103, "kamal103", "k@gmail3.com"),
+				new Student(104, "kamal104", "k@gmail4.com")
+				);
+		List<Student> newStudents=new ArrayList<Student>(students);
+		Student newStudent=new Student(105, "kamal105", "k@gmail5.com");
+		newStudents.add(newStudent);
+		for (Student student : newStudents) {
+			System.out.println(student);
+		}
+
+	}
+
+}

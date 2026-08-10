@@ -1,0 +1,28 @@
+package com.adda.app.dao.impl;
+
+import java.util.List;
+
+import com.adda.app.bean.Course;
+import com.adda.app.dao.CourseDao;
+
+public class CourseDaoImpl implements CourseDao {
+
+	@Override
+	public void addCourse(Course course) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Course> getAllCourses() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Course getCourseById() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

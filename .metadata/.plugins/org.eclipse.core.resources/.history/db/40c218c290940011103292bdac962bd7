@@ -1,0 +1,28 @@
+package com.adda.app.dao.impl;
+
+import java.util.List;
+
+import com.adda.app.bean.Student;
+import com.adda.app.dao.StudentDao;
+
+public class StudentDaoImpl implements StudentDao{
+
+	@Override
+	public void addStudent(Student student) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Student> getAllStudents() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Student getStudentById() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

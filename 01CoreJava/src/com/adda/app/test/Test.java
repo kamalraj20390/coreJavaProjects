@@ -1,0 +1,23 @@
+package com.adda.app.test;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.adda.app.bean.Student;
+
+public class Test {
+	public static List<Student> newStudents=new ArrayList<Student>();
+	public static void main(String[] args) {
+		Student newStudent1=new Student(105, "kamal105", "k@gmail5.com");
+		Student newStudent2=new Student(106, "kamal106", "k@gmail6.com");
+		newStudents.add(newStudent1);
+		newStudents.add(newStudent2);
+	if(newStudents.contains(newStudent1))
+		System.out.println("true");
+		for (Student student : newStudents) {
+			System.out.println(student);
+		}
+
+	}
+
+}

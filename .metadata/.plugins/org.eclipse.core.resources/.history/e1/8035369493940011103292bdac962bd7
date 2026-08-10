@@ -1,0 +1,28 @@
+package com.adda.app.service.impl;
+
+import java.util.List;
+
+import com.adda.app.bean.Student;
+import com.adda.app.service.StudentService;
+
+public class StudentServiceImpl implements StudentService {
+
+	@Override
+	public boolean addStudent(Student student) {
+		
+		
+	}
+
+	@Override
+	public List<Student> getAllStudents() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Student getStudentById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

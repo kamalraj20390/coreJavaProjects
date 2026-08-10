@@ -1,0 +1,7 @@
+package com.adda.app.service.impl;
+
+import com.adda.app.service.CourseService;
+
+public class CourseServiceImpl implements CourseService {
+
+}

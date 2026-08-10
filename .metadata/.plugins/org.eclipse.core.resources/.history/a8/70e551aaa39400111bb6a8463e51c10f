@@ -1,0 +1,59 @@
+package com.adda.app.main;
+
+import java.util.List;
+
+import com.adda.app.bean.Student;
+import com.adda.app.dao.StudentDao;
+import com.adda.app.dao.impl.StudentDaoImpl;
+import com.adda.app.service.CourseService;
+import com.adda.app.service.StudentService;
+import com.adda.app.service.impl.CourseServiceImpl;
+import com.adda.app.service.impl.StudentServiceImpl;
+import com.adda.app.util.InputUtil;
+
+public class Main {
+	private static StudentService studentService=new StudentServiceImpl();
+	private static CourseService courseService=new CourseServiceImpl();
+	public static void main(String[] args) {
+		while (true) {
+			System.out.println();
+			System.out.println("=====================================");
+			System.out.println("STUDENT & COURSE MANAGEMENT SYSTEM");
+			System.out.println("=====================================");
+			System.out.println("1. ADD");
+			System.out.println("2. VIEW");
+			System.out.println("3. Enroll");
+			System.out.println("4. View Enroll");
+			System.out.println("5. Exit");
+			System.out.println("---------------------------------------");
+			int choice=InputUtil.getInt("Enter Your Choice : ");
+			
+			switch (choice) {
+			case 1:
+					addMenu();
+				break;
+			case 2:
+				
+				break;
+			case 3:
+				
+				break;
+			case 4:
+				
+				break;
+			case 5:
+				
+				break;
+
+			default:
+				System.out.println("Invalid Choice! ");;
+			}
+			
+		}
+	}
+	private static void addMenu() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
