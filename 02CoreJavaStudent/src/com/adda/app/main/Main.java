@@ -3,16 +3,20 @@ package com.adda.app.main;
 import java.util.List;
 
 import com.adda.app.bean.Course;
+import com.adda.app.bean.Enrollment;
 import com.adda.app.bean.Student;
 import com.adda.app.service.CourseService;
+import com.adda.app.service.EnrollmentService;
 import com.adda.app.service.StudentService;
 import com.adda.app.service.impl.CourseServiceImpl;
+import com.adda.app.service.impl.EnrollmentServiceImpl;
 import com.adda.app.service.impl.StudentServiceImpl;
 import com.adda.app.util.InputUtil;
 
 public class Main {
 	private static StudentService studentService=new StudentServiceImpl();
 	private static CourseService courseService=new CourseServiceImpl();
+	private static EnrollmentService enrollmentService=new EnrollmentServiceImpl();
 	public static void main(String[] args) {
 		while (true) {
 			System.out.println();
@@ -51,11 +55,88 @@ public class Main {
 		}
 	}
 	private static void viewEnrollMenu() {
+		System.out.println();
+		System.out.println("--------------VIEW---------------");
+		System.out.println("1. View Enrollments");
+		System.out.println("2. View Enrollments By Student");
+		System.out.println("3. View Enrollments By Course");
+		System.out.println("4. Back");
+		int choice = InputUtil.getInt("Enter Your Choice: ");
+		switch (choice) {
+		case 1:
+				viewEnrollments();
+			break;
+		case 2:
+				viewEnrollmentsByStudent();
+			break;
+		case 3:
+				viewEnrollmentsByCourse();;
+		case 4:
+				return;
+		default:
+			System.out.println("Invalid Choice! ");
+		}
+		
+	}
+	private static void viewEnrollmentsByCourse() {
+		// TODO Auto-generated method stub
+		
+	}
+	private static void viewEnrollmentsByStudent() {
+		// TODO Auto-generated method stub
+		
+	}
+	private static void viewEnrollments() {
 		// TODO Auto-generated method stub
 		
 	}
 	private static void enrollStudent() {
-		// TODO Auto-generated method stub
+		System.out.println();
+		System.out.println("--------------ENROLLMENT---------------");
+		if (studentService.getAllStudents().isEmpty()) {
+			System.out.println("Please Add At least One Student !");
+			return;
+		}
+		if (courseService.getAllCourses().isEmpty()) {
+			System.out.println("Please Add At least One Course !");
+			return;
+		}
+		int enrollmentId=InputUtil.getInt("Enter Enrollment Id");
+		Enrollment enrollment=enrollmentService.getEnrollmentById(enrollmentId);
+		if (enrollment!=null) {
+			System.out.println("Enrolment already Exist !");
+			return;
+		}
+		int studentId=InputUtil.getInt("Enter Student Id");
+		Student student=studentService.getStudentById(studentId);
+		if (student==null) {
+			System.out.println("Student Not Found");
+			return;
+		}
+		int courseId=InputUtil.getInt("Enter Course Id");
+		Course course=courseService.getCourseById(courseId);
+		if (course==null) {
+			System.out.println("Course Not Found");
+			return;
+		}
+		
+		if (enrollmentService.isAlreadyEnrolled(studentId, courseId)) {
+			System.out.println();
+			System.out.println("Student is Already Enrolled in this Course !");
+			return;
+		}
+		boolean result=enrollmentService.addEnrollment(enrollment);
+		if (result) {
+			System.out.println();
+			System.out.println("=================================");
+			System.out.println("Enrollment Successful");
+			System.out.println("Student : "+student.getName());
+			System.out.println("Course : "+course.getCourseName());
+			System.out.println("=================================");
+		}else {
+			System.out.println();
+			System.out.println("Enrollment Failed");
+		}
 		
 	}
 	private static void viewMenu() {
@@ -63,7 +144,7 @@ public class Main {
 		System.out.println("--------------VIEW---------------");
 		System.out.println("1. View Student");
 		System.out.println("2. View Course");
-		System.out.println("3. Exit");
+		System.out.println("3. Back");
 		int choice = InputUtil.getInt("Enter Your Choice: ");
 		switch (choice) {
 		case 1:
@@ -73,8 +154,7 @@ public class Main {
 				viewCourse();
 			break;
 		case 3:
-				System.out.println("Thank You");
-				System.exit(0);
+				return;
 		default:
 			System.out.println("Invalid Choice! ");
 		}
@@ -123,7 +203,7 @@ public class Main {
 		System.out.println("--------------ADD---------------");
 		System.out.println("1. Add Student");
 		System.out.println("2. Add Course");
-		System.out.println("3. Exit");
+		System.out.println("3. Back");
 		int choice = InputUtil.getInt("Enter Your Choice: ");
 		switch (choice) {
 		case 1:
@@ -133,8 +213,7 @@ public class Main {
 				addCourse();
 			break;
 		case 3:
-				System.out.println("Thank You");
-				System.exit(0);
+				return;
 		default:
 			System.out.println("Invalid Choice! ");
 		}

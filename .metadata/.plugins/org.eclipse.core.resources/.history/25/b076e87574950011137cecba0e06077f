@@ -1,0 +1,229 @@
+package com.adda.app.main;
+
+import java.util.List;
+
+import com.adda.app.bean.Course;
+import com.adda.app.bean.Enrollment;
+import com.adda.app.bean.Student;
+import com.adda.app.service.CourseService;
+import com.adda.app.service.EnrollmentService;
+import com.adda.app.service.StudentService;
+import com.adda.app.service.impl.CourseServiceImpl;
+import com.adda.app.service.impl.EnrollmentServiceImpl;
+import com.adda.app.service.impl.StudentServiceImpl;
+import com.adda.app.util.InputUtil;
+
+public class Main {
+	private static StudentService studentService=new StudentServiceImpl();
+	private static CourseService courseService=new CourseServiceImpl();
+	private static EnrollmentService enrollmentService=new EnrollmentServiceImpl();
+	public static void main(String[] args) {
+		while (true) {
+			System.out.println();
+			System.out.println("=====================================");
+			System.out.println("STUDENT & COURSE MANAGEMENT SYSTEM");
+			System.out.println("=====================================");
+			System.out.println("1. ADD");
+			System.out.println("2. VIEW");
+			System.out.println("3. Enroll");
+			System.out.println("4. View Enroll");
+			System.out.println("5. Exit");
+			System.out.println("---------------------------------------");
+			int choice=InputUtil.getInt("Enter Your Choice : ");
+			
+			switch (choice) {
+			case 1:
+					addMenu();
+				break;
+			case 2:
+					viewMenu();
+				break;
+			case 3:
+					enrollStudent();
+				break;
+			case 4:
+					viewEnrollMenu();
+				break;
+			case 5:
+					System.out.println("Thank You");
+					System.exit(0);
+
+			default:
+				System.out.println("Invalid Choice! ");
+			}
+			
+		}
+	}
+	private static void viewEnrollMenu() {
+		// TODO Auto-generated method stub
+		
+	}
+	private static void enrollStudent() {
+		System.out.println();
+		System.out.println("--------------ENROLLMENT---------------");
+		if (studentService.getAllStudents().isEmpty()) {
+			System.out.println("Please Add At least One Student !");
+			return;
+		}
+		if (courseService.getAllCourses().isEmpty()) {
+			System.out.println("Please Add At least One Course !");
+			return;
+		}
+		int enrollmentId=InputUtil.getInt("Enter Enrollment Id");
+		Enrollment enrollment=enrollmentService.getEnrollmentById(enrollmentId);
+		if (enrollment!=null) {
+			System.out.println("Enrolment already Exist !");
+			return;
+		}
+		int studentId=InputUtil.getInt("Enter Student Id");
+		Student student=studentService.getStudentById(studentId);
+		if (student==null) {
+			System.out.println("Student Not Found");
+			return;
+		}
+		int courseId=InputUtil.getInt("Enter Course Id");
+		Course course=courseService.getCourseById(courseId);
+		if (course==null) {
+			System.out.println("Course Not Found");
+			return;
+		}
+		
+		if (enrollmentService.isAlreadyEnrolled(studentId, courseId)) {
+			System.out.println();
+			System.out.println("Student is Already Enrolled in this Course !");
+			return;
+		}
+		boolean result=enrollmentService.addEnrollment(enrollment);
+		if (result) {
+			System.out.println();
+			System.out.println("=================================");
+			System.out.println("Enrollment Successful");
+			System.out.println("Student : "+student.getName());
+			System.out.println("Course : "+course.getCourseName());
+			System.out.println("=================================");
+		}else {
+			System.out.println();
+			System.out.println("Enrollment Failed");
+		}
+		
+	}
+	private static void viewMenu() {
+		System.out.println();
+		System.out.println("--------------VIEW---------------");
+		System.out.println("1. View Student");
+		System.out.println("2. View Course");
+		System.out.println("3. Exit");
+		int choice = InputUtil.getInt("Enter Your Choice: ");
+		switch (choice) {
+		case 1:
+				viewStudent();
+			break;
+		case 2:
+				viewCourse();
+			break;
+		case 3:
+				System.out.println("Thank You");
+				System.exit(0);
+		default:
+			System.out.println("Invalid Choice! ");
+		}
+		
+	}
+	private static void viewCourse() {
+		System.out.println();
+		System.out.println("--------------ALL COURSES---------------");
+		List<Course> courses=courseService.getAllCourses();
+		if (courses.isEmpty()) {
+			System.out.println("No Courses Available.");
+			return ;
+		}
+		
+		for (Course course : courses) {
+			System.out.println("-------------------------------------");
+			System.out.println("ID           : "+course.getId());
+			System.out.println("COURSE NAME  : "+course.getCourseName());
+			System.out.println("Trainer      : "+course.getTrainer());
+			System.out.println("Fee          : "+course.getFee());
+			System.out.println("-------------------------------------");
+		}
+		
+	}
+	private static void viewStudent() {
+		System.out.println();
+		System.out.println("--------------ALL STUDENTS---------------");
+		List<Student> students=studentService.getAllStudents();
+		if (students.isEmpty()) {
+			System.out.println("No Students Available.");
+			return ;
+		}
+		
+		for (Student student : students) {
+			System.out.println("-------------------------------------");
+			System.out.println("ID    : "+student.getId());
+			System.out.println("NAME  : "+student.getName());
+			System.out.println("EMAIL : "+student.getEmail());
+			System.out.println("MOBILE: "+student.getMobile());
+			System.out.println("-------------------------------------");
+		}
+		
+	}
+	private static void addMenu() {
+		System.out.println();
+		System.out.println("--------------ADD---------------");
+		System.out.println("1. Add Student");
+		System.out.println("2. Add Course");
+		System.out.println("3. Exit");
+		int choice = InputUtil.getInt("Enter Your Choice: ");
+		switch (choice) {
+		case 1:
+				addStudent();
+			break;
+		case 2:
+				addCourse();
+			break;
+		case 3:
+				System.out.println("Thank You");
+				System.exit(0);
+		default:
+			System.out.println("Invalid Choice! ");
+		}
+		
+		
+	}
+	private static void addCourse() {
+		System.out.println();
+		System.out.println("--------------ADD COURSE-------------");
+		int id=InputUtil.getInt("Enter Course Id :");
+		String name = InputUtil.getString("Enter Course Name :");
+		String trainer = InputUtil.getString("Enter Trainer :");
+		double fee = InputUtil.getDouble("Enter Fee :");
+		Course course=new Course(id, name, trainer, fee);
+		boolean result=courseService.addCourse(course);
+		if(result) {
+			System.out.println();
+			System.out.println("Course Added Successfully!");
+		}else {
+			System.out.println();
+			System.out.println("Course Id Already Exist!");
+		}
+		
+	}
+	private static void addStudent() {
+		System.out.println();
+		System.out.println("--------------ADD STUDENT-------------");
+		int id=InputUtil.getInt("Enter Student Id :");
+		String name = InputUtil.getString("Enter Your Name :");
+		String email = InputUtil.getString("Enter Email :");
+		String mobile = InputUtil.getString("Enter Mobile :");
+		Student student=new Student(id, name, email, mobile);
+		boolean result=studentService.addStudent(student);
+		if(result) {
+			System.out.println();
+			System.out.println("Student Added Successfully!");
+		}else {
+			System.out.println();
+			System.out.println("Student Id Already Exist!");
+		}
+	}
+
+}

@@ -4,13 +4,18 @@
     <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="com.adda.app.util.DataStore"/>
-    <fullyQualifiedTypeName name="com.adda.app.bean.Course"/>
-    <fullyQualifiedTypeName name="com.adda.app.bean.Student"/>
     <fullyQualifiedTypeName name="com.adda.app.dao.StudentDao"/>
     <fullyQualifiedTypeName name="com.adda.app.dao.impl.StudentDaoImpl"/>
     <fullyQualifiedTypeName name="com.adda.app.dao.CourseDao"/>
     <fullyQualifiedTypeName name="com.adda.app.dao.impl.CourseDaoImpl"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
-    <fullyQualifiedTypeName name="com.adda.app.util.InputUtil"/>
     <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="com.adda.app.service.StudentService"/>
+    <fullyQualifiedTypeName name="com.adda.app.service.impl.StudentServiceImpl"/>
+    <fullyQualifiedTypeName name="com.adda.app.service.CourseService"/>
+    <fullyQualifiedTypeName name="com.adda.app.service.impl.CourseServiceImpl"/>
+    <fullyQualifiedTypeName name="com.adda.app.util.InputUtil"/>
+    <fullyQualifiedTypeName name="com.adda.app.bean.Student"/>
+    <fullyQualifiedTypeName name="com.adda.app.bean.Course"/>
+    <fullyQualifiedTypeName name="java.lang.Double"/>
 </qualifiedTypeNameHistroy>

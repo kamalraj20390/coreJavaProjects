@@ -1,0 +1,58 @@
+package com.adda.app.service.impl;
+
+import java.util.List;
+
+import com.adda.app.bean.Course;
+import com.adda.app.bean.Enrollment;
+import com.adda.app.bean.Student;
+import com.adda.app.dao.CourseDao;
+import com.adda.app.dao.EnrollmentDao;
+import com.adda.app.dao.StudentDao;
+import com.adda.app.dao.impl.CourseDaoImpl;
+import com.adda.app.dao.impl.EnrollmentDaoImpl;
+import com.adda.app.dao.impl.StudentDaoImpl;
+import com.adda.app.service.EnrollmentService;
+
+public class EnrollmentServiceImpl implements EnrollmentService {
+	private EnrollmentDao enrollmentDao =new EnrollmentDaoImpl();
+	private StudentDao studentDao = new StudentDaoImpl();
+	private CourseDao courseDao = new CourseDaoImpl();
+	@Override
+	public boolean addEnrollment(Enrollment enrollment) {
+		if (enrollmentDao.getEnrollmentById(enrollment.getId())!=null) {
+			return false;
+		}
+		Student student=studentDao.getStudentById(enrollment.getStudent().getId());
+		if (student==null) {
+			return false;			
+		}
+		Course course=courseDao.getCourseById(enrollment.getCourse().getId());
+		if (course==null) {
+			return false;			
+		}
+		if (enrollmentDao.isAlreadyEnrolled(
+				enrollment.getStudent().getId(), 
+				enrollment.getCourse().getId())) {
+			return false;
+		}
+		enrollmentDao.addEnrollment(enrollment);
+		return true;
+	}
+
+	@Override
+	public List<Enrollment> getAllEnrollment() {
+		return enrollmentDao.getAllEnrollment();
+	}
+
+	@Override
+	public Enrollment getEnrollmentById(int id) {
+		return enrollmentDao.getEnrollmentById(id);
+	}
+
+	@Override
+	public boolean isAlreadyEnrolled(int studentId, int courseId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

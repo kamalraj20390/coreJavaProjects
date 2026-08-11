@@ -9,7 +9,6 @@ public class Student {
 	private String name;
 	private String email;
 	private String mobile;
-	private List<Course> courses=new ArrayList<>();
 	public Student() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -45,16 +44,9 @@ public class Student {
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
-	public List<Course> getCourses() {
-		return courses;
-	}
-	public void setCourses(List<Course> courses) {
-		this.courses = courses;
-	}
-	@Override
+		@Override
 	public String toString() {
-		return "Student [id=" + id + ", name=" + name + ", email=" + email + ", mobile=" + mobile + ", courses="
-				+ courses + "]";
+		return "Student [id=" + id + ", name=" + name + ", email=" + email + ", mobile=" + mobile + " ]";
 	}
 	
 	

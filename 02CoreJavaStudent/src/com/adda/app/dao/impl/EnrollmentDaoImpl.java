@@ -1,0 +1,40 @@
+package com.adda.app.dao.impl;
+
+import java.util.List;
+
+import com.adda.app.bean.Enrollment;
+import com.adda.app.dao.EnrollmentDao;
+import com.adda.app.util.DataStore;
+
+public class EnrollmentDaoImpl implements EnrollmentDao {
+	@Override
+	public void addEnrollment(Enrollment enrollment) {
+		DataStore.enrollments.add(enrollment);
+
+	}
+
+	@Override
+	public List<Enrollment> getAllEnrollment() {
+		return DataStore.enrollments;
+	}
+
+	@Override
+	public Enrollment getEnrollmentById(int id) {
+		for (Enrollment enrollment : DataStore.enrollments) {
+			if(id==enrollment.getId())
+				return enrollment;
+		}
+		return null;
+	}
+
+	@Override
+	public boolean isAlreadyEnrolled(int studentId, int courseId) {
+		for (Enrollment enrollment : DataStore.enrollments) {
+			if (enrollment.getStudent().getId()==studentId && enrollment.getCourse().getId()==courseId) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+}
