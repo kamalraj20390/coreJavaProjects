@@ -67,10 +67,10 @@ public class Main {
 				viewEnrollments();
 			break;
 		case 2:
-			viewStudentWiseEnrollment();
+				viewEnrollmentsByStudent();
 			break;
 		case 3:
-			viewCourseWiseEnrollment();;
+				viewEnrollmentsByCourse();;
 		case 4:
 				return;
 		default:
@@ -78,190 +78,17 @@ public class Main {
 		}
 		
 	}
+	private static void viewEnrollmentsByCourse() {
+		// TODO Auto-generated method stub
+		
+	}
+	private static void viewEnrollmentsByStudent() {
+		// TODO Auto-generated method stub
+		
+	}
 	private static void viewEnrollments() {
-
-	    System.out.println();
-	    System.out.println("--------------------------------------------------------------------------");
-	    System.out.println("                         ENROLLMENT LIST");
-	    System.out.println("--------------------------------------------------------------------------");
-
-	    List<Enrollment> enrollments =
-	            enrollmentService.getAllEnrollment();
-
-	    if (enrollments.isEmpty()) {
-	        System.out.println("No enrollments available.");
-	        return;
-	    }
-
-	    System.out.printf(
-	            "%-15s %-15s %-20s %-15s %-25s%n",
-	            "ENROLLMENT ID",
-	            "STUDENT ID",
-	            "STUDENT NAME",
-	            "COURSE ID",
-	            "COURSE NAME"
-	    );
-
-	    System.out.println(
-	            "----------------------------------------------------------------------------------------"
-	    );
-
-	    for (Enrollment enrollment : enrollments) {
-
-	        System.out.printf(
-	                "%-15d %-15d %-20s %-15d %-25s%n",
-	                enrollment.getId(),
-	                enrollment.getStudent().getId(),
-	                enrollment.getStudent().getName(),
-	                enrollment.getCourse().getId(),
-	                enrollment.getCourse().getCourseName()
-	        );
-	    }
-
-	    System.out.println(
-	            "----------------------------------------------------------------------------------------"
-	    );
-	}
-
-	private static void viewStudentWiseEnrollment() {
-
-	    System.out.println();
-	    System.out.println("Enter Student ID");
-
-	    int studentId =
-	            InputUtil.getInt("Student ID: ");
-
-	    Student student =
-	            studentService.getStudentById(studentId);
-
-	    if (student == null) {
-
-	        System.out.println("Student not found!");
-	        return;
-	    }
-
-	    System.out.println();
-	    System.out.println(
-	            "Student : " + student.getName()
-	    );
-
-	    System.out.println();
-	    System.out.println(
-	            "----------------------------------------------------------------"
-	    );
-
-	    System.out.printf(
-	            "%-15s %-15s %-25s %-20s%n",
-	            "ENROLLMENT ID",
-	            "COURSE ID",
-	            "COURSE NAME",
-	            "TRAINER"
-	    );
-
-	    System.out.println(
-	            "----------------------------------------------------------------"
-	    );
-
-	    boolean found = false;
-
-	    for (Enrollment enrollment :
-	            enrollmentService.getAllEnrollment()) {
-
-	        if (enrollment.getStudent().getId()
-	                == studentId) {
-
-	            System.out.printf(
-	                    "%-15d %-15d %-25s %-20s%n",
-	                    enrollment.getId(),
-	                    enrollment.getCourse().getId(),
-	                    enrollment.getCourse().getCourseName(),
-	                    enrollment.getCourse().getTrainer()
-	            );
-
-	            found = true;
-	        }
-	    }
-
-	    if (!found) {
-
-	        System.out.println(
-	                "No course enrolled."
-	        );
-	    }
-
-	    System.out.println(
-	            "----------------------------------------------------------------"
-	    );
-	}
-
-	private static void viewCourseWiseEnrollment() {
-
-	    System.out.println();
-
-	    int courseId =
-	            InputUtil.getInt("Course ID: ");
-
-	    Course course =
-	            courseService.getCourseById(courseId);
-
-	    if (course == null) {
-
-	        System.out.println("Course not found!");
-	        return;
-	    }
-
-	    System.out.println();
-	    System.out.println(
-	            "Course : " + course.getCourseName()
-	    );
-
-	    System.out.println();
-	    System.out.println(
-	            "--------------------------------------------------------------------------"
-	    );
-
-	    System.out.printf(
-	            "%-15s %-15s %-20s %-30s%n",
-	            "ENROLLMENT ID",
-	            "STUDENT ID",
-	            "STUDENT NAME",
-	            "EMAIL"
-	    );
-
-	    System.out.println(
-	            "--------------------------------------------------------------------------"
-	    );
-
-	    boolean found = false;
-
-	    for (Enrollment enrollment :
-	            enrollmentService.getAllEnrollment()) {
-
-	        if (enrollment.getCourse().getId()
-	                == courseId) {
-
-	            System.out.printf(
-	                    "%-15d %-15d %-20s %-30s%n",
-	                    enrollment.getId(),
-	                    enrollment.getStudent().getId(),
-	                    enrollment.getStudent().getName(),
-	                    enrollment.getStudent().getEmail()
-	            );
-
-	            found = true;
-	        }
-	    }
-
-	    if (!found) {
-
-	        System.out.println(
-	                "No students enrolled."
-	        );
-	    }
-
-	    System.out.println(
-	            "--------------------------------------------------------------------------"
-	    );
+		// TODO Auto-generated method stub
+		
 	}
 	private static void enrollStudent() {
 		System.out.println();
@@ -276,7 +103,6 @@ public class Main {
 		}
 		int enrollmentId=InputUtil.getInt("Enter Enrollment Id");
 		Enrollment enrollment=enrollmentService.getEnrollmentById(enrollmentId);
-		//System.out.println(enrollment+" "+enrollmentId);
 		if (enrollment!=null) {
 			System.out.println("Enrolment already Exist !");
 			return;
@@ -299,10 +125,6 @@ public class Main {
 			System.out.println("Student is Already Enrolled in this Course !");
 			return;
 		}
-		enrollment=new Enrollment();
-		enrollment.setId(enrollmentId);
-		enrollment.setStudent(student);
-		enrollment.setCourse(course);
 		boolean result=enrollmentService.addEnrollment(enrollment);
 		if (result) {
 			System.out.println();

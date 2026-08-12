@@ -4,4 +4,6 @@
     <typeInfo handle="=02CoreJavaStudent/src&lt;com.adda.app.service{StudentService.java[StudentService" modifiers="513" timestamp="1786349648228"/>
     <typeInfo handle="=02CoreJavaStudent/src&lt;com.adda.app.service{CourseService.java[CourseService" modifiers="513" timestamp="1786349706514"/>
     <typeInfo handle="=02CoreJavaStudent/D:\/sts-4.21.0.RELEASE\/plugins\/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.9.v20231028-0858\/jre\/lib\/jrt-fs.jar`java.management=/javadoc_location=/https:\/\/docs.oracle.com\/en\/java\/javase\/17\/docs\/api\/=/=/module=/true=/&lt;javax.management.monitor(CounterMonitorMBean.class[CounterMonitorMBean" modifiers="1537" timestamp="1704780550416"/>
+    <typeInfo handle="=02CoreJavaStudent/src&lt;com.adda.app.dao{EnrollmentDao.java[EnrollmentDao" modifiers="513" timestamp="1786433896566"/>
+    <typeInfo handle="=02CoreJavaStudent/src&lt;com.adda.app.service{EnrollmentService.java[EnrollmentService" modifiers="513" timestamp="1786434384503"/>
 </typeInfoHistroy>

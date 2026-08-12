@@ -276,7 +276,7 @@ public class Main {
 		}
 		int enrollmentId=InputUtil.getInt("Enter Enrollment Id");
 		Enrollment enrollment=enrollmentService.getEnrollmentById(enrollmentId);
-		//System.out.println(enrollment+" "+enrollmentId);
+		System.out.println(enrollment+" "+enrollmentId);
 		if (enrollment!=null) {
 			System.out.println("Enrolment already Exist !");
 			return;
@@ -299,10 +299,6 @@ public class Main {
 			System.out.println("Student is Already Enrolled in this Course !");
 			return;
 		}
-		enrollment=new Enrollment();
-		enrollment.setId(enrollmentId);
-		enrollment.setStudent(student);
-		enrollment.setCourse(course);
 		boolean result=enrollmentService.addEnrollment(enrollment);
 		if (result) {
 			System.out.println();
